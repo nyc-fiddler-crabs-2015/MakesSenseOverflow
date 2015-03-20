@@ -12,7 +12,7 @@ class FavoritesController < ApplicationController
 
 private
 
-  def favortie_parms
+  def favorite_parms
     params.require(:favorite).permit(:user_id, :question_id)
   end
 

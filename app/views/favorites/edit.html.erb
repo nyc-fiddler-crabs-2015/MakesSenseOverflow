@@ -1,0 +1,14 @@
+<%= form_for(:favorite, url: review_path, method: :patch) do |f| %>
+  <%= f.label :Artist%>
+  <%= f.text_field :artist %>
+<br>
+  <%= f.label :Album %>
+  <%= f.text_field :album %>
+<br>
+  <%= f.label :Content %>
+  <%= f.text_field :content %>
+<br>
+  <%= f.hidden_field :user_id %>
+<br>
+  <%= f.submit "Update" %>
+<% end %>

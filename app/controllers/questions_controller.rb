@@ -9,11 +9,13 @@ class QuestionsController < ApplicationController
 
   def index
     @questions = Question.all
-    @answers = @question.answers
+    # @answers = @question.answers
   end
 
   def show
-    @quesion = Question.find(params[:id])
+    @question = Question.find(params[:id])
+    @answer = Answer.new
+    @answers = Answer.where(question_id: params[:id])
   end
 
   def new

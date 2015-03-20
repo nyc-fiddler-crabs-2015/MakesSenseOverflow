@@ -1,6 +1,7 @@
 class QuestionsController < ApplicationController
-<<<<<<< HEAD
-=======
+  before_filter :ensure_current_user
+
+  skip_before_filter :ensure_current_user, :only => [:index, :show]
 
   before_filter :ensure_current_user
 
@@ -54,5 +55,4 @@ class QuestionsController < ApplicationController
     params.require(:question).permit(:title, :description, :user_id)
   end
 
->>>>>>> create questin controller
 end

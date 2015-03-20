@@ -4,12 +4,16 @@ class AnswersController < ApplicationController
     @answer = Answer.new
   end
 
+  def index
+    @answers = Answer.where(question_id: params[:question_id])
+  end
+
   def create
     answer = Answer.new(answer_params)
     if answer.save
       redirect_to :back
     else
-      redirect_to new_answer_path
+      render new_answer_path
   end
 
   def destroy
@@ -17,6 +21,10 @@ class AnswersController < ApplicationController
     redirect_to :back
   end
 
+  def show
+    @answer = Answer.find(params[:id])
+    @user = User.find(@answer.user_id)
+  end
 
 private
 

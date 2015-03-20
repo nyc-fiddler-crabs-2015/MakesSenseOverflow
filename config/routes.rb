@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
 
-  root 'questions#index'
+	root 'questions#index'
 
-  resources :questions do
-    resources :answers
-  end
+	resources :questions do
+		resources :answers
+		resources :categories
 
-  resources :categories
-  resources :users
-  resources :favorites, only: ["update", "edit"]
+	end
+
+	resources :users
+	resources :favorites, only: ["update", "edit"]
 end

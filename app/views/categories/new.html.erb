@@ -1,4 +1,4 @@
-<%= form_for(@category) do |f| %>
+<%= form_for([@question,@category]) do |f| %>
   <%= f.label :tag_name %>:
 <%= f.text_field :tag_name %>
 <%= f.submit "Add Tag" %>

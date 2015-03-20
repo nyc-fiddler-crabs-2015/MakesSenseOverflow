@@ -24,5 +24,4 @@ describe UsersController do
       expect(last_response).to be_ok
     end
   end
-
 end

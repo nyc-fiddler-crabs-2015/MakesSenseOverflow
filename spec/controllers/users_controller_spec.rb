@@ -2,7 +2,7 @@ require 'rails_helper'
 
 
 describe UsersController do
-  let(:user) {User.create(username: 'Dongchul',email: 'ldc@ldc.com' password: '1234')}
+  let(:user) {User.create(name: 'Dongchul',email: 'ldc@ldc.com' password: '1234')}
 
   describe 'GET Users#new' do
     it 'should render login page' do
@@ -13,7 +13,7 @@ describe UsersController do
 
   describe 'users#create' do
     it 'should redirect after post' do
-      user :create, {username: 'Chris', email: 'chris@chris.com', password: '12345'}
+      user :create, {name: 'Chris', email: 'chris@chris.com', password: '12345'}
       expect(response.status).to be_redirect
     end
   end

@@ -1,22 +1,20 @@
 describe ContactsController do
   describe "GET #index" do
-    it 'populates a page with all of the questions'
-
     it "renders the :index view"
-
+      get :index
+      response.should render_template :index
   end
 
   describe "GET #show" do
-    it "assigns the requested answer to @answer"
-
     it "renders the :show template"
-
+      get :show
+      response.should render_template :show
   end
 
   describe "GET #new" do
-    it "assigns a new Answer to @answer"
-
     it "renders the :new template"
-
+      get :new
+      response.should render_template :new
   end
+end
 

@@ -6,8 +6,9 @@
   <%= link_to "delete", question_path(@question), method: "delete" %><br>
 <% end %>
 
-
-
+<%= render partial: "answers/new", locals: {answer: @answer, question: @question}%>
+<h3>Answers</h3>
+<%= render partial: "answers/index", locals: {answers: @answers} %>
 
 
 <%= link_to "Back", questions_path %>

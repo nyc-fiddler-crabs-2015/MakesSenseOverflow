@@ -3,7 +3,7 @@
   <%= f.text_field :content %>
 <br>
   <%= f.hidden_field :user_id, value: 1 %>
-  <%= f.hidden_field :question_id, value: question %>
+  <%= f.hidden_field :question_id, value: question.id %>
 <br>
   <%= f.submit "Submit" %>
 <% end %>

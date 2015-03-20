@@ -10,7 +10,15 @@ class CategoriesController < ApplicationController
 	end
 
 	def create
-		category = Category.create(:tag_name => params[:tag_name], :question_id => params[:question_id])
+		params[:category][:question_id] = params[:question_id]
+		category = Category.create(category_params)
+		redirect_to question_categories_path
+	end
+
+	private
+
+	def category_params
+		params.require(:category).permit(:question_id, :tag_name)
 	end
 
 end

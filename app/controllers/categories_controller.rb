@@ -6,6 +6,7 @@ class CategoriesController < ApplicationController
 
 	def new
 		@category = Category.new
+		@question = Question.find(params[:question_id])
 	end
 
 	def create

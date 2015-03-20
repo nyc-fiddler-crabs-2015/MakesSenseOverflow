@@ -9,7 +9,7 @@ class AnswersController < ApplicationController
     if answer.save
       redirect_to :back
     else
-      redirect_to new_answer_path
+      render new_answer_path
   end
 
   def destroy

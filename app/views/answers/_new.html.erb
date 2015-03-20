@@ -1,9 +1,9 @@
-<%= form_for(:answer, url: question_answers_path) do |f| %>
-  <%= f.label :Answer %>
+<%= form_for([question,answer]) do |f| %>
+  <%= f.label "Answer the question" %><br>
   <%= f.text_field :content %>
 <br>
   <%= f.hidden_field :user_id, value: 1 %>
-  <%= f.hidden_field :question_id, value: 1 %>
+  <%= f.hidden_field :question_id, value: question %>
 <br>
   <%= f.submit "Submit" %>
 <% end %>

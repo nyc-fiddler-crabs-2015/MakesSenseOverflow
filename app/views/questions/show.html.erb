@@ -5,6 +5,8 @@
   <%= link_to "edit", edit_question_path(@question)%>
   <%= link_to "delete", question_path(@question), method: "delete" %><br>
 <% end %>
+<%= render partial: "categories/index", locals: {categories: @categories, question: @question}%>
+<%= render partial: "categories/new", locals: {category: @category, question: @question}%>
 
 <%= render partial: "answers/new", locals: {answer: @answer, question: @question}%>
 <h3>Answers</h3>

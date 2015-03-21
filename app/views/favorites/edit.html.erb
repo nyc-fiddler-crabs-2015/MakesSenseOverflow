@@ -1,0 +1,7 @@
+<%= form_for(:favorite, url: review_path, method: :patch) do |f| %>
+  <%= f.hidden_field :question_id %>
+<br>
+  <%= f.hidden_field :user_id %>
+<br>
+  <%= f.submit "Update" %>
+<% end %>

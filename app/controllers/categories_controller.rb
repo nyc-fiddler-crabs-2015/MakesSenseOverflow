@@ -12,7 +12,7 @@ class CategoriesController < ApplicationController
 	def create
 		params[:category][:question_id] = params[:question_id]
 		category = Category.create(category_params)
-		redirect_to question_categories_path
+		redirect_to :back
 	end
 
 	private

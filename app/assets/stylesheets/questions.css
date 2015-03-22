@@ -1,3 +1,9 @@
+body {
+  padding-top: 50px;
+  padding-bottom: 20px;
+}
+
+
 .tag {
 	display: inline-block;
 	background: black;
@@ -6,4 +12,21 @@
 	color: white;
 	font-weight: bold;
 	border-radius: 5px;
-	}
+}
+
+[placeholder]:focus::-webkit-input-placeholder {
+  transition: opacity 0.5s 0.5s ease;
+  opacity: 0;
+}
+
+
+.white {
+	color: white;
+}
+
+button.search {
+outline: 0;
+box-shadow: none;
+background: none;
+border: 0
+}

@@ -1,7 +1,4 @@
 class QuestionsController < ApplicationController
-  before_filter :ensure_current_user
-
-  skip_before_filter :ensure_current_user, :only => [:index, :show]
 
   before_filter :ensure_current_user
 

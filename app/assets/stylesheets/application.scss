@@ -13,3 +13,14 @@
  *= require_tree .
  *= require_self
  */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.white {color: white;}
+
+button.search {
+outline: 0;
+box-shadow: none;
+background: none;
+border: 0
+}

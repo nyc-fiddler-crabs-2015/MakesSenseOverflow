@@ -4,9 +4,9 @@ class SessionsController < ApplicationController
     @user = User.find_by(name: params[:name])
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
-      redirect_to "/questions/index"
+      redirect_to user_show_path(@user)
     else
-      redirect_to "/new"
+      redirect_to :back
     end
   end
 

@@ -4,23 +4,25 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
-  def create
-    user = User.new(user_params)
-    if user.valid?
-      user.save
-      session[:user_id] = user.id
-      redirect_to "/"
-    else
-      redirect_to "new"
-    end
-  end
-
   def new
     @user = User.new
   end
 
+  def create
+    @user = User.new(user_params)
+    if @user.save
+      session[:user_id] = user.id
+      redirect_to user_show_path(@user)
+    else
+      redirect_to :back
+    end
+  end
+
   def edit
-    @user = User.find(session[:user_id])
+    if @user.id == session[:user_id]
+      render :edit
+    else
+      redirect_to :root
   end
 
   def show
@@ -29,8 +31,8 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(session[:user_id])
-    @user.update(user_params)
-    redirect_to @user
+    @user.update_attributes(user_params)
+    render :show
   end
 
   private

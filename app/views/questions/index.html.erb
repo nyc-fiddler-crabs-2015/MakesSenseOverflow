@@ -1,0 +1,21 @@
+<h1>Recent Questions</h1>
+
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Question</th>
+			<th>Inquirer</th>
+			<th>Answers</th>
+		</tr>
+	</thead>
+	<tbody>
+		<%@questions.each do |question|%>
+		<tr>
+			<td><h4><%= link_to "#{question.title}", question_path(question) %></h4></td>
+			<td><h4><%= link_to "#{question.user.name}", user_path(question.user_id) %></h4></td>
+			<td><h4><%=question.answers.count%></h4></td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
+</div>

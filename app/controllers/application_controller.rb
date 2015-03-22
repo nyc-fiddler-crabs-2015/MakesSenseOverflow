@@ -4,8 +4,12 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def current_user
-     User.find_by(id: session[:user_id])
-  end
+		if session[:user_id]
+			return User.find(session[:user_id])
+		else
+			return nil
+		end
+	end
 
   def ensure_current_user
     redirect_to root_path unless current_user

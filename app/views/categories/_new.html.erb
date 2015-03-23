@@ -1,6 +1,6 @@
-<%= form_for([@question,@category]) do |f| %>
+<%= form_for [@question,@category], :html => {:class => "form-horizontal center"} do |f| %>
   <%= f.label :tag_name %>:
 <%= f.text_field :tag_name %>
 
-<%= f.submit "Add Tag" %>
+<%= f.submit "Add Tag", :class => 'btn btn-primary' %>
 <% end %>

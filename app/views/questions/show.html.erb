@@ -1,9 +1,12 @@
 <h2> <%= @question.title %> </h2>
-<%= @question.description %><br>
+
+<div class="well">
+  <p><%= @question.description %></p>
+</div>
 
 <% if @question.user_id == session[:user_id] %>
-  <%= link_to "edit", edit_question_path(@question)%>
-  <%= link_to "delete", question_path(@question), method: "delete" %><br>
+<%= link_to "edit", edit_question_path(@question)%>
+<%= link_to "delete", question_path(@question), method: "delete" %><br>
 <% end %>
 <%= render partial: "categories/index", locals: {categories: @categories, question: @question}%>
 <%= render partial: "categories/new", locals: {category: @category, question: @question}%>

@@ -1,4 +1,10 @@
-<%answers.each do |answer|%>
-  <%= answer.content%><br>
-<% end %>
 
+
+
+<%answers.each do |answer|%>
+<div class="well">
+  <p><%= answer.content%></p>
+  <p class="text-info"> Posted by <%= "#{answer.user.name} on #{nice_date answer.created_at}" %> </p>
+  </div>
+
+<% end %>

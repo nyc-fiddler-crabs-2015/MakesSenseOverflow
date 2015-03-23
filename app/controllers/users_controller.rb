@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
   def index
+    @session_user = check_session
     @users = User.all
   end
 
@@ -12,29 +13,21 @@ class UsersController < ApplicationController
     user = User.new(user_params)
     if user.save
       session[:user_id] = user.id
-      redirect_to user_path(user.id)
+      redirect_to "/"
     else
-      redirect_to :back
+      redirect_to "new"
     end
   end
-
-  def edit
-    if @user.id == session[:user_id]
-      render :edit
-    else
-      redirect_to :root
-    end
-  end
-
 
     def show
+      @session_user = check_session
       @user = User.find(params[:id])
     end
 
     def update
       @user = User.find(session[:user_id])
       @user.update_attributes(user_params)
-      render :show
+      redirect_to @user
     end
 
     private
@@ -42,5 +35,4 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:name, :email, :password, :password_digest )
     end
-
   end

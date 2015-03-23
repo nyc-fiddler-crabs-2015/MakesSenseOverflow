@@ -13,5 +13,4 @@ Rails.application.routes.draw do
 
 	resources :favorites, only: ["update", "edit"]
 
-	get '/logout', to: 'sessions#logout'
 end

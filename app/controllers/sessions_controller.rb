@@ -1,12 +1,13 @@
 class SessionsController < ApplicationController
+ skip_before_filter :ensure_current_user
 
-  def create
+  def login
     @user = User.find_by(name: params[:name])
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
-      redirect_to user_show_path(@user)
+      redirect_to "/questions/index"
     else
-      redirect_to :back
+      redirect_to "/new"
     end
   end
 
@@ -16,7 +17,7 @@ class SessionsController < ApplicationController
 
   def logout
     session[:user_id] = nil
-    redirect_to root_path
+    redirect_to"/"
   end
 
 end

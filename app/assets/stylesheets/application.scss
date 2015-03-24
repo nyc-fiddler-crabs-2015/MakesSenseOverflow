@@ -13,8 +13,9 @@
  *= require_tree .
  *= require_self
  */
- @import "bootstrap-sprockets";
- @import "bootstrap";
+
+/* We should not have actual scss or css in here, this file is for referencing
+ * other files that do have actual content in it. */
 
  .white {color: white;}
 

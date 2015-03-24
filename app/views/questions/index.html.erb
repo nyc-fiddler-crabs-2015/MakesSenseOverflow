@@ -11,8 +11,8 @@
 	<tbody>
 		<%@questions.each do |question|%>
 		<tr>
-			<td><h4><%= link_to "#{question.title}", question_path(question) %></h4></td>
-			<td><h4><%= link_to "#{question.user.name}", user_path(question.user_id) %></h4></td>
+			<td><h4><%= link_to question.title, question_path(question) %></h4></td>
+			<td><h4><%= link_to question.user.name, user_path(question.user_id) %></h4></td>
 			<td><h4><%=question.answers.count%></h4></td>
 		</tr>
 		<% end %>

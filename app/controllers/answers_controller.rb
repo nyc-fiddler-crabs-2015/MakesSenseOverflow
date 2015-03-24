@@ -1,16 +1,15 @@
 class AnswersController < ApplicationController
 
   def index
-      @answers = Answers.where(question_id: params[:id])
+    @answers = Question.find(params[:id]).answers
   end
-  
+
   def new
     @answer = Answer.new
   end
 
   def create
-    params[:answer][:question_id] = params[:question_id]
-    answer = Answer.new(answer_params)
+    answer = Question.find(params[:question_id]).answers.build
     if answer.save
       redirect_to :back
     else
@@ -24,7 +23,7 @@ class AnswersController < ApplicationController
   end
 
 
-private
+  private
 
   def answer_params
     params.require(:answer).permit(:content, :question_id, :user_id)

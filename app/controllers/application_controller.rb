@@ -11,7 +11,4 @@ class ApplicationController < ActionController::Base
 		end
 	end
 
-  def ensure_current_user
-    redirect_to root_path unless current_user
-  end
 end

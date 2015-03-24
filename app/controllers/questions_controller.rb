@@ -1,7 +1,7 @@
 class QuestionsController < ApplicationController
 
+  # Consolidate these two with "only" or "except"
   before_filter :ensure_current_user
-
   skip_before_filter :ensure_current_user, :only => [:index, :show]
 
   def index
@@ -9,6 +9,7 @@ class QuestionsController < ApplicationController
   end
 
   def show
+    # Mad propz: it was great to see you sort out this N+1 issue
     @question = Question.includes(:categories, :user, :favorite, :answers).find(params[:id])
     @answer = Answer.new
     @answers = @question.answers
@@ -55,4 +56,7 @@ class QuestionsController < ApplicationController
     params.require(:question).permit(:title, :description, :user_id)
   end
 
+  def ensure_current_user
+    redirect_to root_path unless current_user
+  end
 end

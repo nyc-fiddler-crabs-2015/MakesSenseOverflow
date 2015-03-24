@@ -1,7 +1,8 @@
 class CategoriesController < ApplicationController
 
 	def index
-		@categories = Category.where("question_id = '#{params[:question_id]}'")
+    # Darth Vader "Is padme all right" - NOOOOOOOOOOooooOOooOOOOoOOooOOOOo!
+    @categories = Question.find(params[:question_id]).categories
 	end
 
 	def new
@@ -10,6 +11,7 @@ class CategoriesController < ApplicationController
 	end
 
 	def create
+    # same pattern as in answers_controller
 		params[:category][:question_id] = params[:question_id]
 		category = Category.create(category_params)
 		redirect_to :back
